@@ -160,55 +160,18 @@ u0 ObjLayer_render(ObjLayer* ol, SDL_Renderer* renderer, Cam* cam, f32 scW, f32 
 {
     if(ol->drawOrder!=NULL) ObjLayer_depthSort(ol); //depth sort if needed
 
-    switch(cam->ali) //find aligment, and render segments
-    {
-        case 0:
-            ObjLayer_renderObjsOffset(ol, renderer, cam, -scW, -scH);
-            ObjLayer_renderObjsOffset(ol, renderer, cam, 0, -scH);
-            ObjLayer_renderObjsOffset(ol, renderer, cam, -scW, 0);
-            ObjLayer_renderObjsOffset(ol, renderer, cam, 0, 0);
-        break;
-        case 1:
-            ObjLayer_renderObjsOffset(ol, renderer, cam, 0, -scH);
-            ObjLayer_renderObjsOffset(ol, renderer, cam, 0, 0);
-        break;
-        case 2:
-            ObjLayer_renderObjsOffset(ol, renderer, cam, 0, -scH);
-            ObjLayer_renderObjsOffset(ol, renderer, cam, scW, -scH);
-            ObjLayer_renderObjsOffset(ol, renderer, cam, 0, 0);
-            ObjLayer_renderObjsOffset(ol, renderer, cam, scW, 0);
-        break;
-        case 3:
-            ObjLayer_renderObjsOffset(ol, renderer, cam, -scW, 0);
-            ObjLayer_renderObjsOffset(ol, renderer, cam, 0, 0);
-        break;
-        case 4:
-            ObjLayer_renderObjsOffset(ol, renderer, cam, 0, 0);
-        break;
-        case 5:
-            ObjLayer_renderObjsOffset(ol, renderer, cam, 0, 0);
-            ObjLayer_renderObjsOffset(ol, renderer, cam, scW, 0);
-        break;
-        case 6:
-            ObjLayer_renderObjsOffset(ol, renderer, cam, -scW, 0);
-            ObjLayer_renderObjsOffset(ol, renderer, cam, 0, 0);
-            ObjLayer_renderObjsOffset(ol, renderer, cam, -scW, scH);
-            ObjLayer_renderObjsOffset(ol, renderer, cam, 0, scH);
-        break;
-        case 7:
-            ObjLayer_renderObjsOffset(ol, renderer, cam, 0, 0);
-            ObjLayer_renderObjsOffset(ol, renderer, cam, 0, scH);
-        break;
-        case 8:
-            ObjLayer_renderObjsOffset(ol, renderer, cam, 0, 0);
-            ObjLayer_renderObjsOffset(ol, renderer, cam, scW, 0);
-            ObjLayer_renderObjsOffset(ol, renderer, cam, 0, scH);
-            ObjLayer_renderObjsOffset(ol, renderer, cam, scW, scH);
-        break;
-        default:
-        break;
-        //order fucntion call order matters, because of painter's algorithm, which is what is used for rendering'
-    }
+    ObjLayer_renderObjsOffset(ol, renderer, cam, -scW, -scH);
+    ObjLayer_renderObjsOffset(ol, renderer, cam, 0, -scH);
+    ObjLayer_renderObjsOffset(ol, renderer, cam, scW, -scH);
+
+    ObjLayer_renderObjsOffset(ol, renderer, cam, -scW, 0);
+    ObjLayer_renderObjsOffset(ol, renderer, cam, 0, 0);
+    ObjLayer_renderObjsOffset(ol, renderer, cam, scW, 0);
+
+    ObjLayer_renderObjsOffset(ol, renderer, cam, -scW, scH);
+    ObjLayer_renderObjsOffset(ol, renderer, cam, 0, scH);
+    ObjLayer_renderObjsOffset(ol, renderer, cam, scW, scH);
+    //all 9 segments need to be rendered, incase a sprite hangs over an edge (this is the case for the snow scene actually)
 }
 
 u0 ObjLayer_depthSort(ObjLayer* ol) //dept sort
