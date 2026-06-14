@@ -1,0 +1,22 @@
+384 -w
+384 -h
+4 zoom
+a/music/xtal.ogg
+:: Xtal - on4word
+1 playerZ
+255 r
+000 g
+255 b
+a/tilesets/chess.dat -tileset
+3 -layerC
+0 -type
+a/tilemaps/chess.dat -data
+2
+a/objlayers/chess.dat
+1 -type
+a/markmaps/chess.dat -data
+1 -doorC
+120 px
+88 py
+0 pFace
+1 scIdx

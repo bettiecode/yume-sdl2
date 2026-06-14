@@ -1,0 +1,7 @@
+--extra, things i could do
+more scenes, more objs
+animated backgrounds. tiles
+fixed parallax?
+further optimize looping sprite rendering?
+further fix step sfx?
+more game mechanics? (effects, menu, inventory) -> saving and loading progress

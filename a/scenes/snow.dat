@@ -1,0 +1,24 @@
+512 -w
+384 -h  
+4 zoom
+a/music/stone_in_focus.ogg
+:: Stone In Focus - on4word
+2 playerZ
+200 r
+200 g
+255 b
+a/tilesets/snow.dat -tileset
+4 -layerC
+3
+a/backdrops/snow.dat
+0 -type
+a/tilemaps/snow.dat -data
+2 -type : objlayer
+a/objlayers/snow.dat
+1 -type
+a/markmaps/snow.dat -data
+1 -doorC
+24 px
+31 py
+0 pFace
+1 scIdx

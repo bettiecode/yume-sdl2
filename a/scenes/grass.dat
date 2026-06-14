@@ -1,0 +1,28 @@
+272 -w
+272 -h  
+4 zoom
+a/music/lichen.ogg
+:: Lichen - on4word
+2 playerZ
+0 r
+0 g
+0 b
+a/tilesets/grass.dat -tileset
+4 -layerC
+3 -type
+a/backdrops/space.dat -data
+0 -type
+a/tilemaps/grass.dat -data
+2
+a/objlayers/grass.dat
+1 -type
+a/markmaps/grass.dat -data
+2 -doorC
+24 px
+31 py
+0 pFace
+0 scIdx
+360 px
+31 py
+0 pFace
+2 scIdx
